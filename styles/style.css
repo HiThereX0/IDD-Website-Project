@@ -1,0 +1,195 @@
+body {
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+label {display: block;}
+
+input[type=text] {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 3px solid grey;
+    background-color: rgb(158, 158, 158);
+    color: rgb(0, 0, 0);
+    border-radius: 10px;
+    transition: 0.5s;
+    outline: none;
+}
+
+input[type=text]:focus {
+    border: 3px solid black;
+    background-color: rgb(236, 236, 236);
+}
+
+/* ctrl forward slash while highlighting text to make it commented
+
+/*style the selector*/
+select {
+    width: 50%;
+    padding: 16px;
+    border: none;
+    border-radius: 10px;
+    background-color: #dcdcdc;
+}
+
+/*style button thing*/
+input[type=button] {
+    background-color: #0486aa;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    border-radius: 10px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+input[type=button]:focus {
+    border: 2px solid rgb(0, 0, 0);
+    background-color: darkkhaki;
+}
+
+/*resizeable text fill formatting*/
+textarea {
+    width: 100%;
+    height: 150px;
+    padding: 12px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background-color: #f8f8f8;
+    font-size: 16px;
+    resize: both;
+}
+
+/*Toggle switch formatting (remove formatting for just checkbox)*/ 
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+input:checked + .slider {
+    background-color: #2196F3;
+}
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+.slider.round:before {
+    border-radius: 50%;
+}
+
+/*RESPONSE FORM FORMATTING (IT OVERRIDES STUFF FRM BEFORE SO COMMENT OUT TO SEE THE OTHER VERS.)*/
+* {
+    box-sizing: border-box;
+}
+
+.responsive-form {
+    max-width: 600px;
+    width: 100%;
+    border-radius: 4px;
+    border: 2px solid #02aeb4;;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+
+body {
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+label {
+    min-width: 50%;
+    margin-bottom: 10px;
+}
+
+input[type=text], select {
+    min-width: 50%;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+select {
+    width: 50%;
+    padding: 10px 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #ffffff;
+}
+
+textarea {
+    min-width: 50%;
+    height: 150px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+input[type=button] {
+    width: 100%;
+    background-color: #02aeb4;
+    color: white;
+    padding: 14px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 600px) {
+    label,
+    input[type=text],
+    input[type=submit],
+    select, textarea {
+        flex: 100%;
+        min-width: 100%;
+    }
+
+}

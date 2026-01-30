@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CSS Form Style with Input Border, Background Color, Text Color and Input with Focus</title>
+        <link rel="stylesheet" href="styles/style.css">
+    </head>
+    <body>
+        <h2>Input Fields with Padding</h2>
+
+        <form>
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" name="fname" value = "Input First Name Here">
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" name="lname" value = "Input Last Name Here">
+        </form>
+    </body>
+
+    <body>
+        <h2>Styling a Dropdown Menu</h2>
+        <form>
+            <select id="country" name="country">
+<option value="au">Australia</option>
+<option value="sg">Singapore</option>
+<option value="ca">Canada</option>
+<option value="usa">USA</option>
+            </select>
+        </form>
+    </body>
+
+    <body>
+        <h2>Styling Form Buttons</h2>
+        <form>
+            <input type="button" value="Cancel">
+            <input type="button" value="Reset">
+            <input type="button" value="Submit">
+        </form>
+    </body>
+
+    <body>
+        <h2>Styling Text Area with Resize Handle</h2>
+
+        <p><strong>Tip:</strong> Use the resize property to prevent text areas from being resized (disable the "grabber" at the bottom right hand corner)</p>
+        
+        <form>
+            <textarea>Some text...</textarea>
+        </form>
+    </body>
+
+    <body>
+        <h2>Toggle Switch</h2>
+        <label class="switch">
+        <input type="checkbox">
+        <span class="slider"></span>
+        </label>
+            <label class="switch">
+            <input type="checkbox" checked>
+            <span class="slider"></span>
+        </label><br><br>
+
+        <label class="switch">
+        <input type="checkbox">
+        <span class="slider round"></span>
+
+        </label>
+            <label class="switch">
+            <input type="checkbox" checked>
+            <span class="slider round"></span>
+        </label>
+    </body>
+
+
+
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CSS Form Style with Padding</title>
+        <link rel="stylesheet" href="styles/style.css">
+    </head>
+
+    <body>
+        <h2>Responsive Form</h2>
+        <p>Resize the screen to see the form layout change</p>
+        <div class="responsive-form">
+            <form>
+                <label for="fname">First Name:</label>
+                <input type="text" id="fname" name="fname" placeholder="Your first name">
+                <label for="lname">Last Name:</label>
+                <input type="text" id="lname" name="lname" placeholder="Your last name">
+                <label for="country">Country:</label>
+                <select id="country" name="country">
+                <option value=""></option>
+                <option value="australia">Australia</option>
+                <option value="singapore">Singapore</option>
+                <option value="canada">Canada</option>
+                <option value="usa">USA</option>
+                </select>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" placeholder="Write something here.."></textarea>
+                <input type="button" value="Submit">
+            </form>
+        </div>
+    </body>
+
+</html>
