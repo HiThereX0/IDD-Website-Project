@@ -19,6 +19,10 @@ import {
   GammaCorrectionPlugin,
   ScrollableCameraViewPlugin,
 
+  VariationConfiguratorPlugin,
+  LoadingScreenPlugin,
+  MaterialConfiguratorPlugin,
+
 
   addBasePlugins,
   Vector3,
@@ -48,6 +52,9 @@ async function setupViewer() {
   // const camViews = viewer.getPlugin(CameraViewPlugin)
   viewer.renderer.refreshPipeline()
 
+  const manager = await viewer.addPlugin(AssetManagerPlugin);
+
+
   // Import and add a GLB file
   await viewer.load("./assets/Fender Stratocaster Guitar_PLAIN.glb")
   // await manager.addFromPath("./assets/carbon frame bike.glb")
@@ -57,10 +64,7 @@ async function setupViewer() {
   // await viewer.setEnvironmentMap("./assets/studio_small_02_4k.exr");
   // await viewer.load("./assets/cube_diamond_sample.gltf")
 
-
-  const obj = (await viewer.createObject3D()).modelObject;
-
-// Camera transform
+  // Camera transform
 	viewer.scene.activeCamera.position = new Vector3(0, 0, 0);
 	viewer.scene.activeCamera.target = new Vector3(0, 0, 0);
 		
@@ -101,21 +105,22 @@ async function setupViewer() {
   });
 
   // ui.setupPluginUi(MaterialConfiguratorPlugin);
-  const drawer = AssetManagerPlugin.materials.findMaterialsByName('draw')[0]
+
+  const drawer = manager.materials.findMaterialsByName('draw')[0]
 	console.log(drawer);
 
   // Materials
-   document.querySelectorAll(".material").forEach((el) => {
-     el.addEventListener("click", () => {
-       const category = config.variations.materials.find((cat) => cat.name === el.getAttribute("data-category"));
-       console.log(category);
-       const index = parseInt(el.getAttribute("data-index"));
-       console.log(index);
-       const type = "materials";
+  // document.querySelectorAll(".material").forEach((el) => {
+  //   el.addEventListener("click", () => {
+  //     const category = config.variations.materials.find((cat) => cat.name === el.getAttribute("data-category"));
+  //     console.log(category);
+  //     const index = parseInt(el.getAttribute("data-index"));
+  //     console.log(index);
+  //     const type = "materials";
       
-       config.applyVariation(category, index, type);
-     });
-   });
+  //     config.applyVariation(category, index, type);
+  //   });
+  // });
 
   // Colors
   document.querySelector('.button-colors.red')?.addEventListener('click', () => {
