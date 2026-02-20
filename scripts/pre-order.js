@@ -1,19 +1,40 @@
 import {
   ViewerApp,
   AssetManagerPlugin,
-  addBasePlugins,
-  ScrollableCameraViewPlugin,
-  VariationConfiguratorPlugin,
+  CameraViewPlugin,
+  CameraView,
+  GBufferPlugin,
+  timeout,
+  ProgressivePlugin,
+  TonemapPlugin,
+  SSRPlugin,
+  SSAOPlugin,
+  DiamondPlugin,
   FrameFadePlugin,
-  LoadingScreenPlugin,
-  PickingPlugin,
+  GLTFAnimationPlugin,
+  GroundPlugin,
+  BloomPlugin,
+  TemporalAAPlugin,
+  AnisotropyPlugin,
+  GammaCorrectionPlugin,
+  ScrollableCameraViewPlugin,
+
+
+  addBasePlugins,
+  Vector3,
+  Mesh,
+  PlaneGeometry,
+  VideoTexture,
+  // ITexture,
   TweakpaneUiPlugin,
-  MaterialConfiguratorPlugin,
+  // TweakpaneUiPlugin,
+  AssetManagerBasicPopupPlugin,
+  CanvasSnipperPlugin,
+  PickingPlugin,
 
   // Import THREE.js internals
   Color,
 	Texture,
-  Vector3
 } from 'webgi';
 
 async function setupViewer() {
@@ -27,10 +48,6 @@ async function setupViewer() {
   // const camViews = viewer.getPlugin(CameraViewPlugin)
   viewer.renderer.refreshPipeline()
 
-  // Add a popup(in HTML) with download progress when any asset is downloading
-  await viewer.addPlugin(AssetManagerBasicPopupPlugin)
-
-
   // Import and add a GLB file
   await viewer.load("./assets/Fender Stratocaster Guitar_PLAIN.glb")
   // await manager.addFromPath("./assets/carbon frame bike.glb")
@@ -43,30 +60,80 @@ async function setupViewer() {
 
   const obj = (await viewer.createObject3D()).modelObject;
 
-
-  const plane = new Mesh(new PlaneGeometry(), viewer.createMaterial());
-  plane.scale.set(1.6, 0.9, 1);
-  plane.translateY(0.5);
-  plane.translateZ(-1.5);
 // Camera transform
-  viewer.scene.activeCamera.position = new Vector3(1, 1, -3.5);
-  viewer.scene.activeCamera.target = new Vector3(0, 0.5, 0);
-   
-  // Camera options
-  const options = viewer.scene.activeCamera.getCameraOptions();
-  options.fov = 25;
-  viewer.scene.activeCamera.setCameraOptions(options);
- 
-  // Control options
-  const controls = viewer.scene.activeCamera.controls;
-  controls.autoRotate = true;
-  controls.autoRotateSpeed = 5;
-  controls.enableDamping = true;
-  controls.rotateSpeed = 2.0;
-  controls.enableZoom = true;
-  controls.enablePan = false;
-  controls.minDistance = 1.5;
-  controls.maxDistance = 10;
+	viewer.scene.activeCamera.position = new Vector3(0, 0, 0);
+	viewer.scene.activeCamera.target = new Vector3(0, 0, 0);
+		
+	// Camera options
+	const options = viewer.scene.activeCamera.getCameraOptions();
+	options.fov = 25;
+	viewer.scene.activeCamera.setCameraOptions(options);
+	
+	// Control options
+	const controls = viewer.scene.activeCamera.controls;
+	controls.autoRotate = false;
+	controls.autoRotateSpeed = 5;
+	controls.enableDamping = true;
+	controls.rotateSpeed = 2.0;
+	controls.enableZoom = true;
+	controls.enablePan = true;
+	controls.minDistance = 3;
+	controls.maxDistance = 12;
+
+  const picking = viewer.addPluginSync(PickingPlugin);
+  picking.hoverEnabled = true;
+  picking.enableWidget = false;
+  console.log(picking.getSelectedObject);
+  // const ui = viewer.addPluginSync(new TweakpaneUiPlugin(true));
+  // ui.setupPluginUi(PickingPlugin);
+  picking.addEventListener('hitObject', (e) => {
+      console.log('Hit object', e, e.intersects.selectedObject);
+      // set to null to prevent selection
+      // e.intersects.selectedObject = null
+  });
+
+  picking.addEventListener('selectedObjectChanged', (e) => {
+      console.log('Selected Object Changed', e);
+  });
+
+  picking.addEventListener('hoverObjectChanged', (e) => {
+      console.log('Hover object changed', e);
+  });
+
+  // ui.setupPluginUi(MaterialConfiguratorPlugin);
+  const drawer = AssetManagerPlugin.materials.findMaterialsByName('draw')[0]
+	console.log(drawer);
+
+  // Materials
+   document.querySelectorAll(".material").forEach((el) => {
+     el.addEventListener("click", () => {
+       const category = config.variations.materials.find((cat) => cat.name === el.getAttribute("data-category"));
+       console.log(category);
+       const index = parseInt(el.getAttribute("data-index"));
+       console.log(index);
+       const type = "materials";
+      
+       config.applyVariation(category, index, type);
+     });
+   });
+
+  // Colors
+  document.querySelector('.button-colors.red')?.addEventListener('click', () => {
+    changeColor(new Color(0xff0000))
+  })
+
+  document.querySelector('.button-colors.green')?.addEventListener('click', () => {
+    changeColor(new Color(0x14ff00))
+  })
+
+  document.querySelector('.button-colors.blue')?.addEventListener('click', () => {
+    changeColor(new Color(0x007eff))
+  })
+
+  function changeColor(colorToBeChanged) {
+    drawer.color = colorToBeChanged;
+    viewer.scene.setDirty();
+  }
 }
 
 setupViewer();
