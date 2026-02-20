@@ -1,195 +1,169 @@
-body {
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-label {display: block;}
-
-input[type=text] {
-    width: 100%;
-    padding: 12px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    border: 3px solid grey;
-    background-color: rgb(158, 158, 158);
-    color: rgb(0, 0, 0);
-    border-radius: 10px;
-    transition: 0.5s;
-    outline: none;
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth; /* smooth - gradual scrolling or auto - instant scrolling */
+}
+  
+.gradient {
+  background: linear-gradient(to right, #3CBDA5, #2B2B6D); /* Gradient from top to bottom */
+	background-size: 100% calc(100% + 1px);
 }
 
-input[type=text]:focus {
-    border: 3px solid black;
-    background-color: rgb(236, 236, 236);
+/* Style for a fixed header */
+header {
+  position: fixed; /* Fixed header at top edge of screen */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background-color: #333;
+  color: white;
+  text-align: center;
+  line-height: 60px;
+  font-size: 30px;
+  z-index: 100;
 }
 
-/* ctrl forward slash while highlighting text to make it commented
-
-/*style the selector*/
-select {
-    width: 50%;
-    padding: 16px;
-    border: none;
-    border-radius: 10px;
-    background-color: #dcdcdc;
+/* Spacing to push content below the header */
+.content {
+  margin-top: 60px;
 }
 
-/*style button thing*/
-input[type=button] {
-    background-color: #0486aa;
-    border: none;
-    color: white;
-    padding: 16px 32px;
-    border-radius: 10px;
-    text-decoration: none;
-    margin: 4px 2px;
-    cursor: pointer;
+#web-canvas {
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  position: fixed;
+  touch-action: none;
 }
 
-input[type=button]:focus {
-    border: 2px solid rgb(0, 0, 0);
-    background-color: darkkhaki;
+#webgi-canvas-container {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 1;
 }
 
-/*resizeable text fill formatting*/
-textarea {
-    width: 100%;
-    height: 150px;
-    padding: 12px;
-    box-sizing: border-box;
-    border: 2px solid #ccc;
-    border-radius: 10px;
-    background-color: #f8f8f8;
-    font-size: 16px;
-    resize: both;
+/* Navigation links in header */
+nav a { /* nav selector targeting all <a> elements (anchor tags) within a <nav> element */
+  color: white;
+  margin: 0 15px;
+  text-decoration: none;
+  font-size: 18px;
 }
 
-/*Toggle switch formatting (remove formatting for just checkbox)*/ 
-.switch {
-    position: relative;
-    display: inline-block;
-    width: 60px;
-    height: 34px;
+nav a:hover { /* :hover pseudo-class allows <nav> element to change when hovered */
+  text-decoration: underline;
 }
 
-.switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
-.slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    -webkit-transition: .4s;
-    transition: .4s;
-}
-.slider:before {
-    position: absolute;
-    content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    -webkit-transition: .4s;
-    transition: .4s;
-}
-input:checked + .slider {
-    background-color: #2196F3;
-}
-input:focus + .slider {
-    box-shadow: 0 0 1px #2196F3;
-}
-input:checked + .slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
+section {
+  height: 100vh;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  color: white;
+  text-align: center;
+  z-index: 5;
 }
 
-/* Rounded sliders */
-.slider.round {
-    border-radius: 34px;
-}
-.slider.round:before {
-    border-radius: 50%;
+/* Different background content for each section */
+#view1 {
+  background-color: #00d9ff;
 }
 
-/*RESPONSE FORM FORMATTING (IT OVERRIDES STUFF FRM BEFORE SO COMMENT OUT TO SEE THE OTHER VERS.)*/
-* {
-    box-sizing: border-box;
+#view2 {
+  background-color: #ff5500;
 }
 
-.responsive-form {
-    max-width: 600px;
-    width: 100%;
-    border-radius: 4px;
-    border: 2px solid #02aeb4;;
-    background-color: #f2f2f2;
-    padding: 20px;
+#view3 {
+  background-color: #a6ff00;
 }
 
-body {
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+#view4 {
+  background-image: linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet);
 }
 
-form {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+#view5 {
+  background-image: url(../assets/wallpaper.jpg);
 }
 
-label {
-    min-width: 50%;
-    margin-bottom: 10px;
+#section6 {
+  background-color: rgba(0, 0, 0, 1);
 }
 
-input[type=text], select {
-    min-width: 50%;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    padding: 10px;
+.video {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  text-align: center;
+  padding: 0 30px;
+  z-index: 1;
 }
 
-select {
-    width: 50%;
-    padding: 10px 10px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    background-color: #ffffff;
+.video video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: black;
+  color: white;
 }
 
-textarea {
-    min-width: 50%;
-    height: 150px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    padding: 10px;
+.overlay-text {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background: #ffffff00;
+  color: #fff;
 }
 
-input[type=button] {
-    width: 100%;
-    background-color: #02aeb4;
-    color: white;
-    padding: 14px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+#view6 {
+  background-color: rgb(127, 127, 127);
 }
 
-@media screen and (max-width: 600px) {
-    label,
-    input[type=text],
-    input[type=submit],
-    select, textarea {
-        flex: 100%;
-        min-width: 100%;
-    }
+.back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #aa00ff;
+  color: white;
+  padding: 10px 15px;
+  text-decoration: none;
+  border-radius: 20px;
+  display: none;
+  z-index: 10;
+}
 
+.back-to-top:hover { /* Hover is a pseudo-class */
+  background-color: #ff00ee;
+}
+
+/* Show button when user scrolls past section 1 */
+body.scrolled .back-to-top {
+  display: block;
+}
+
+/* Footer */
+footer {
+  height: 100px;
+  background-color: #222;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

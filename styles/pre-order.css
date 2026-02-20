@@ -1,0 +1,136 @@
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth; /* smooth - gradual scrolling or auto - instant scrolling */
+}
+  
+.canvasBG {
+  background: white;
+	background-size: 100% calc(100% + 1px);
+}
+
+/* Style for a fixed header */
+header {
+  position: fixed; /* Fixed header at top edge of screen */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background-color: #333;
+  color: white;
+  text-align: center;
+  line-height: 60px;
+  font-size: 30px;
+  z-index: 100;
+}
+
+/* Spacing to push content below the header */
+.content {
+  margin-top: 60px;
+}
+
+/* Navigation links in header */
+nav a { /* nav selector targeting all <a> elements (anchor tags) within a <nav> element */
+  color: white;
+  margin: 0 15px;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+nav a:hover { /* :hover pseudo-class allows <nav> element to change when hovered */
+  text-decoration: underline;
+}
+
+section {
+  height: 100vh;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  color:white;
+  background-color: #B59276;
+  text-align: center;
+  z-index: 5;
+}
+
+
+/* customisation section */
+#Customisation{
+ background-color: white;
+}
+
+#web-canvas {
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+#webgi-canvas-container {
+  /* position: fixed; */
+  margin: 0;
+  padding: 0;
+  width: 50%;
+  height: 80%;
+  margin: 10vh 10vw;
+  /* background-color: rgb(181, 181, 163); */
+  border: 1px solid;
+  border-radius: 0.5rem;
+  box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+
+/* details section
+#Details{
+
+}
+*/
+/* order info section 
+#OrderInfo{
+
+}
+*/
+
+
+.back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #aa00ff;
+  color: white;
+  padding: 10px 15px;
+  text-decoration: none;
+  border-radius: 20px;
+  display: none;
+  z-index: 10;
+}
+
+
+
+
+.back-to-top:hover { /* Hover is a pseudo-class */
+  background-color: #ff00ee;
+}
+
+/* Show button when user scrolls past section 1 */
+body.scrolled .back-to-top {
+  display: block;
+}
+
+
+/* Footer */
+footer {
+  height: 100px;
+  background-color: #222;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
