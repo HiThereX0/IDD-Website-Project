@@ -1,9 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 html, body {
   width: 100%;
   height: 100%;
   margin: 0;
   padding: 0;
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family:'Montserrat', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 /* Smooth scroll behavior */
@@ -16,19 +17,48 @@ html {
 	background-size: 100% calc(100% + 1px);
 }
 
-/* Style for a fixed header */
 header {
-  position: fixed; /* Fixed header at top edge of screen */
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 60px;
-  background-color: #333;
-  color: white;
-  text-align: center;
-  line-height: 60px;
-  font-size: 30px;
-  z-index: 100;
+  background-color: #343333; /* Matches your dark grey theme */
+  
+  display: flex;                /* Turns on Flexbox */
+  justify-content: space-between; /* Pushes content to the edges */
+  align-items: center;          /* Centers logo and text vertically */
+  
+  padding: 0 30px;              /* Keeps logo/links from touching the screen edges */
+  box-sizing: border-box; 
+  z-index: 1000;
+}
+
+/* 1. Size your logo */
+.header-logo {
+  height: 55px;   /* Adjust this until it looks right */
+  width: auto;
+  display: block;
+}
+
+/* 2. Style the nav area */
+nav {
+  display: flex;
+  gap: 25px;      /* Adds space between the links */
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+/* 3. Make 'Pre-Order' stand out */
+.preorder-link {
+  color: #ffffff; /* Or whatever accent color you like */
+  font-weight: 700;
 }
 
 /* Spacing to push content below the header */
@@ -78,27 +108,28 @@ section {
 
 /* Different background content for each section */
 #view1 {
-  background-color: #00d9ff;
+  background-color: #1a1a1a; /* Professional Dark Charcoal */
+  color: #ffffff; /* Make "Guitar List" title white */
 }
 
 #view2 {
-  background-color: #ff5500;
+  background-color: #ffffff; /* Pure white */
 }
 
 #view3 {
-  background-color: #a6ff00;
+ background-color: #ececec; /* Soft light grey */
 }
 
 #view4 {
-  background-image: linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet);
+  background-color: #ffffff; /* Pure white */
 }
 
 #view5 {
-  background-image: url(../assets/wallpaper.jpg);
+  background-color: #ececec; /* Soft light grey */
 }
 
 #section6 {
-  background-color: rgba(0, 0, 0, 1);
+  background-color: #222222;
 }
 
 .video {
@@ -166,4 +197,194 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+/* Container adjustments for Section 1 */
+#view1 {
+  flex-direction: column; /* Stack the Title and the Slider */
+  justify-content: flex-start; /* Align content to the top */
+  padding-top: 80px; /* Space for your fixed header */
+}
+
+.section-title {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+/* The Slider Box */
+.slider-container {
+  width: 100%;
+  max-width: 1200px; /* Optional: keeps it from getting too wide on huge screens */
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 20px 0;
+  scrollbar-width: thin; /* Makes scrollbar less bulky in Firefox */
+}
+
+/* Custom Scrollbar for Chrome/Safari */
+.slider-container::-webkit-scrollbar {
+  height: 8px;
+}
+.slider-container::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.3);
+  border-radius: 10px;
+}
+
+/* The List of Guitars */
+.guitar-list {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 25px; /* Space between cards */
+}
+
+.guitar-card {
+  flex: 0 0 200px; /* Width reduced to make them smaller */
+  display: flex;
+  flex-direction: column; 
+  background-color: #ffffff; 
+  padding: 12px; /* Reduced padding to save space */
+  border-radius: 4px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  height: 420px; /* Optional: Set a fixed height to keep them uniform */
+}
+
+.user-image {
+  width: 100%;
+  height: 240px; /* Smaller height for the image area */
+  object-fit: contain; /* Ensures the guitar isn't cropped */
+  background-color: #f9f9f9; /* Subtle light grey box for the guitar */
+  margin-bottom: 10px;
+}
+
+.name {
+  color: #000;
+  font-size: 14px; /* Slightly smaller font for smaller cards */
+  min-height: 3em; 
+  margin: 10px 0;
+  line-height: 1.2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.feedback {
+  font-size: 12px;
+  color: #777;
+  margin-bottom: 15px;
+}
+
+.specs-btn {
+  background-color: #f0f0f0;
+  color: #333;
+  border: none;
+  padding: 8px 15px;
+  font-size: 14px;
+  cursor: pointer;
+  width: 100%;
+  font-family: inherit;
+}
+
+.specs-btn:hover {
+  background-color: #fff;
+}
+
+/* Styling for the content inside each "View" section */
+.spec-row {
+  display: flex;
+  width: 90%;
+  max-width: 1000px;
+  align-items: center;
+  justify-content: space-around;
+  color: #333; /* Darker text for readability if needed */
+}
+
+/* 1. The Container */
+.spec-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  position: relative; /* Essential for stacking images */
+  height: 85vh;       /* INCREASED height to make it bigger */
+  min-width: 400px;   /* Gives the guitar room to turn */
+}
+
+/* 2. The Images */
+.spec-image img {
+  height: 100%;       /* Fills the 85vh container */
+  width: auto;
+  position: absolute; /* Stacks front and back images */
+  transition: opacity 0.5s ease-in-out; /* Smooth turning effect */
+  backface-visibility: hidden;
+}
+
+/* 3. Hide the back image initially */
+.guitar-back {
+  opacity: 0;
+}
+
+/* 4. The Hover Magic */
+.spec-image:hover .guitar-front {
+  opacity: 0;
+}
+
+.spec-image:hover .guitar-back {
+  opacity: 1;
+}
+
+.spec-text {
+  flex: 1;
+  text-align: left;
+  padding: 0 40px;
+  font-size: 24px; /* Matches your large-font theme */
+}
+
+.spec-text h3 {
+  font-size: 48px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #333;
+}
+
+/* Container to handle the link behavior */
+.specs-btn-link {
+  text-decoration: none;
+  width: 100%;
+  display: block;
+  margin-top: auto; /* THIS IS THE SECRET: it pushes the button to the bottom */
+  padding-top: 15px; /* Adds a bit of breathing room above the button */
+}
+
+/* The "Fender" Pro Button */
+.specs-btn {
+  background-color: #000; /* Solid black for a premium look */
+  color: #fff; /* Crisp white text */
+  border: 1px solid #444; /* Subtle dark border */
+  padding: 12px 0; /* Vertical breathing room */
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase; /* Clean, professional typography */
+  letter-spacing: 1.5px; /* Better readability for small text */
+  cursor: pointer;
+  width: 100%;
+  border-radius: 0; /* Sharp corners often look more premium than rounded */
+  transition: all 0.2s ease-in-out;
+  font-family: inherit;
+  box-shadow: 2px 2px 0px #333; /* Hard shadow for depth */
+}
+
+/* Hover Interaction */
+.specs-btn:hover {
+  background-color: #aa00ff; /* Matches your purple theme */
+  border-color: #aa00ff;
+  color: #fff;
+  transform: translate(-1px, -1px); /* Moves up slightly */
+  box-shadow: 4px 4px 0px #550080; /* Shadow grows on hover */
+}
+
+/* Click Interaction */
+.specs-btn:active {
+  transform: translate(1px, 1px); /* "Presses" down */
+  box-shadow: 1px 1px 0px #333;
 }
