@@ -16,6 +16,8 @@ html {
 	background-size: 100% calc(100% + 1px);
 }
 
+/*------------------------- Header formatting stuff ----------------------------*/
+
 /* Style for a fixed header */
 header {
   position: fixed; /* Fixed header at top edge of screen */
@@ -32,6 +34,13 @@ header {
   z-index: 100;
   image-rendering: auto;
 }
+
+.logo{
+  float: left;
+  width: 8%;
+  height: 50%;
+}
+
 
 /* Spacing to push content below the header */
 .content {
@@ -50,6 +59,12 @@ nav a:hover { /* :hover pseudo-class allows <nav> element to change when hovered
   text-decoration: underline;
 }
 
+.offset {
+  margin-left: 10px; /* Adds 100px margin on all sides */
+}
+
+/*------------------------- Base deets about section ----------------------------*/
+
 section {
   height: 100vh;
   padding: 20px;
@@ -63,12 +78,38 @@ section {
   z-index: 5;
 }
 
+/*------------------------- Back to top Button ----------------------------*/
 
-/* customisation section */
-/* #Customisation{
- background-color: white;
- justify-content: center;
-} */
+
+.back-to-top:hover { /* Hover is a pseudo-class */
+  background-color: #ff00ee;
+}
+
+/* Show button when user scrolls past section 1 */
+body.scrolled .back-to-top {
+  display: block;
+}
+
+
+.back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #aa00ff;
+  color: white;
+  padding: 10px 15px;
+  text-decoration: none;
+  border-radius: 20px;
+  display: none;
+  z-index: 10;
+}
+
+
+/*-------------------------------------------------- CUSTOMISATION SECTION OF THE PREORDER PAGE ----------------------------------------*/
+
+#Customisation{
+  justify-content: center;
+}
 
 #webgi-canvas-container {
   /* position: fixed; */
@@ -88,25 +129,11 @@ section {
   z-index: -1;
 }
 
-#ui {
-  position: absolute;
-  top: 0;
-  margin: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-
-
-.strap-colors {
-  list-style: none;
-}
 
 .button-colors {
   /* background-color: rgb(255, 157, 0); */
-  width: 30px;
-  height: 30px;
+  width: 35%;
+  height: 90%;
   border-radius: 50px;
   border: 1px solid rgb(255, 255, 255);
   margin-left: 5px;
@@ -128,7 +155,9 @@ section {
   background-color: #B0B0B0;
   border-radius: 50px;
   display: flex;
+  list-style-type: none;
 }
+
 .Pickguard-Materials, .Main-Body-colors{
   width: 71%;
 }
@@ -162,60 +191,10 @@ section {
   background-color: rgb(124, 78, 25);
 }
 
-.offset {
-  margin-left: 10px; /* Adds 100px margin on all sides */
-}
 
-
-/* details section
-#Details{
-
-}
-*/
-/* order info section 
-#OrderInfo{
-
-}
-*/
-
-
-.back-to-top {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #aa00ff;
-  color: white;
-  padding: 10px 15px;
-  text-decoration: none;
-  border-radius: 20px;
-  display: none;
-  z-index: 10;
-}
-
-.text{
+h6{
   color: #222;
   margin-bottom: 20px;
-}
-
-
-.back-to-top:hover { /* Hover is a pseudo-class */
-  background-color: #ff00ee;
-}
-
-/* Show button when user scrolls past section 1 */
-body.scrolled .back-to-top {
-  display: block;
-}
-
-
-/* Footer */
-footer {
-  height: 100px;
-  background-color: #222;
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 #Customization-Buttons{
@@ -231,9 +210,107 @@ footer {
   border-radius: 5px;
 }
 
-img{
-  float: left;
-  width: 8%;
+/*-------------------------------------------------- DETAILS SECTION OF THE PREORDER PAGE ----------------------------------------*/
+
+/*------------------------- Whats Included ----------------------------*/
+
+#Details{
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  background-color: aquamarine;
+}
+
+.WhatItComesWith{
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  height: 345px;
+  background-color: #ECECEC;
+  opacity: 80%;
+  padding-top: 20px;
+  justify-content: start;
+}
+
+h5{
+  color:#222;
+  font-size: xx-large;
+  margin: 0px;
+}
+
+.ShowItems{
+  display: flex;
+  justify-content: center;
+  margin: 0px;
+}
+
+.ItemIncluded{
+  width: 30%;
   height: 50%;
+  list-style-type: none;
+  margin: 0px;
+  margin-top: 15px;
+}
+
+.IncludedItemImg{
+  width: 140px;
+  height: 210px;
+  background-color: azure;
+  margin: 0px;
+}
+
+h4{
+  font-size: x-large;
+  font-weight: 600;
+  color:#222;
+  margin: 0px;
+}
+
+/*------------------------- Product Specification ----------------------------*/
+
+.DetailBox{
+  width: 75%;
+  margin-top: 20px;
+  padding: 0px;
+  background-color: #ECECEC;
+  opacity: 80%;
+}
+
+.detailHeader{
+  padding: 10px;
+  background-color: #DDDDDD;
+}
+
+.detailInfo{
+  display: flex;
+  width: 95%;
+}
+
+.info{
+  width: 40%;
+  margin-left: 50px;
+  font-size: large;
+  color: #222;
+  word-wrap: normal;
+  text-align: left;
+}
+
+.infolisted{
+  margin-top: 20px;
+}
+
+
+/*-------------------------------------------- GATHER CUSTOMER INFO SECTION OF THE PREORDER PAGE ----------------------------------------*/
+
+
+/*---------------------------------------------------------------- FOOTER ------------------------------------------------------------*/
+
+footer {
+  height: 400px;
+  background-color: #222;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
