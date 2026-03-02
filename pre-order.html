@@ -9,11 +9,11 @@
   </head>
 
   <body>
-    <!-- Fixed header with navigation bar -->
+      <!-- Fixed header with navigation bar -->
     <header>
       <nav>
         <img class="logo" src="./assets/fender logo.png" alt="">
-        <a href="index.html">View Products</a>
+        <a href="index.html">Products</a>
         <a href="pre-order.html"><b>Pre-Order</b></a>
       </nav>
     </header>
@@ -36,13 +36,13 @@
           </h6>
 
           <ul class="Main-Body-colors"> <!-- <ul> for unordered lists, <ol> for ordered list -->
-					  <li class="button-colors red"></li> <!-- list items -->
-					  <li class="button-colors green"></li>
-					  <li class="button-colors lightBlue"></li>
-            <li class="button-colors darkBlue"></li> <!-- list items -->
-					  <li class="button-colors purple"></li>
-					  <li class="button-colors black"></li>
-            <li class="button-colors white"></li>
+					  <li class="button-colors red redbodymat"></li> <!-- list items -->
+					  <li class="button-colors green greenbodymat"></li>
+					  <li class="button-colors lightBlue lightBluebodymat"></li>
+            <li class="button-colors darkBlue darkBluebodymat"></li> <!-- list items -->
+					  <li class="button-colors purple pubplebodymat"></li>
+					  <li class="button-colors black blackbodymat"></li>
+            <li class="button-colors white whitebodymat"></li>
 				  </ul>
 
           <h6> 
@@ -50,13 +50,13 @@
           </h6>
 
           <ul class="Pickguard-Materials"> <!-- <ul> for unordered lists, <ol> for ordered list -->
-					  <li class="button-colors red"></li> <!-- list items -->
-					  <li class="button-colors green"></li>
-					  <li class="button-colors lightBlue"></li>
-            <li class="button-colors darkBlue"></li> <!-- list items -->
-					  <li class="button-colors purple"></li>
-					  <li class="button-colors black"></li>
-            <li class="button-colors white"></li>
+					  <li class="button-colors red redpickmat"></li> <!-- list items -->
+					  <li class="button-colors green greenpickmat"></li>
+					  <li class="button-colors lightBlue lightBluepickmat"></li>
+            <li class="button-colors darkBlue darkBluepickmat"></li> <!-- list items -->
+					  <li class="button-colors purple purplepickmat"></li>
+					  <li class="button-colors black blackpickmat"></li>
+            <li class="button-colors white whitepickmat"></li>
 				  </ul>
 
           <h6> 
@@ -103,15 +103,15 @@
 
           <div class="detailInfo">
             <ul class="info">
-              <li> Lorem ipsum dolor sit amet, consectetur adipiscing elit </li>
-              <li> Lorem ipsum dolor sit amet, consectetur </li>
-              <li> Lorem ipsum dolor sit amet </li>
-              <li> Lorem ipsum dolor sit amet, consectetur adipiscing elit </li>
+              <li class="infolisted"> Three V-Mod II single-coil Stratocaster pickups </li>
+              <li class="infolisted"> Upgraded 2-Point Tremolo with Cold-Rolled Steel Block </li>
+              <li class="infolisted"> Deep "C"-shaped neck profile with rolled fingerboard edges </li>
+              <li class="infolisted"> Bone nut; 22 narrow-tall frets for easy bending </li>
             </ul>
 
             <ul class="info">
-              <li> Lorem ipsum dolor sit amet, consectetur adipiscing elit </li>
-              <li> Lorem ipsum dolor sit amet </li>
+              <li class="infolisted"> Treble bleed circuit maintains highs when reducing volume </li>
+              <li class="infolisted"> Includes Deluxe Molded hardshell case </li>
             </ul>
           </div>
 
@@ -121,7 +121,61 @@
       </section>
 
       <section id="OrderInfo"> <!--Customer order details-->
+
+        <div id="webgi-canvas-container">
           
+          <canvas id="web-canvas" class="canvasBG"></canvas>
+
+        </div>
+
+        <div id="formHolder">
+          
+
+          <form>
+            <label for="inputheader">Delivery Address:</label>
+            <input type="text" id="deliveryInput" value="Street name Building No. Unit Number, Postal code etc. ">
+          </form>
+
+          <div class="nameInput">
+            <form>
+              <label for="inputheader">First Name:</label>
+              <input type="text" id="fname" value="John">
+            </form>
+
+            <div class="offset"></div>
+
+            <form>
+              <label for="inputheader">Last Name:</label>
+              <input type="text" id="lname" value="Doe">
+            </form>
+          </div>
+
+          <div id="phoneNum">
+            
+            <label for="inputheader">Phone Number:</label>
+            
+            <div class="phoneNumInput">
+              <form>
+                <input type="text" id="phoneExt" class="phoneExtension" value="+65">
+              </form>
+
+              <div class="offset"></div>
+
+              <form>
+                <input type="text" id="phoneNumberInput" class="phoneNumber" value="#### ####">
+              </form>
+
+            </div>
+
+          </div>
+
+          <!-- submit button -->
+           <c class="button-submit"> Submit Pre-order Now </c>
+
+        </div>
+          
+
+
       </section>
 
       <!-- Footer -->

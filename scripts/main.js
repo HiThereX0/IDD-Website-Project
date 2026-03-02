@@ -20,6 +20,9 @@ async function setupViewer() {
   const viewer = new ViewerApp({
       canvas: document.getElementById('web-canvas'),
   });
+  const viewer2 = new ViewerApp({
+      canvas: document.getElementById('webgi-canvas'),
+  });
 
   await addBasePlugins(viewer);
   await viewer.addPlugin(ScrollableCameraViewPlugin);
